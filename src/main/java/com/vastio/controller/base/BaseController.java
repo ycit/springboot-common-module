@@ -17,7 +17,7 @@ public class BaseController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BaseController.class);
 
-    public <T> ApiResponse<T> success(int total, List<T> results) {
+    protected  <T> ApiResponse<T> success(int total, List<T> results) {
         ApiResponse<T> apiResponse = new ApiResponse<>();
         apiResponse.setCode(HttpServletResponse.SC_OK);
         apiResponse.setTotal(total);
@@ -25,7 +25,7 @@ public class BaseController {
         return apiResponse;
     }
 
-    public <T> ApiResponse<T> error(Integer code, String message) {
+    protected  <T> ApiResponse<T> error(Integer code, String message) {
         ApiResponse<T> apiResponse = new ApiResponse<>();
         apiResponse.setCode(code);
         apiResponse.setMessage(message);

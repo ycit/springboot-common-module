@@ -45,7 +45,6 @@ public class RestControllerAdvice {
     @ResponseBody
     public ApiResponse generalError(Exception ex, HttpServletRequest request) {
         LOGGER.error("Error 500: {}, {}", ex.getMessage(), ex.getStackTrace()[0]);
-        ex.printStackTrace();
         ApiResponse error = new ApiResponse();
         error.setCode(500);
         error.setMessage("服务器内部错误");
@@ -56,7 +55,6 @@ public class RestControllerAdvice {
     @ResponseBody
     public ApiResponse customException(Exception ex, HttpServletRequest request) {
         LOGGER.error("custom exception: {}, {}", ex.getMessage(), ex.getStackTrace()[0]);
-        ex.printStackTrace();
         ApiResponse error = new ApiResponse();
         error.setCode(400);
         error.setMessage(ex.getMessage());
